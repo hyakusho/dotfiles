@@ -1,18 +1,20 @@
 #!/usr/bin/env sh
 
-# Install Vundle.vim
-if [ ! -e "$HOME/.vim/bundle/Vundle.vim" ]; then
-  mkdir -p $HOME/.vim/bundle
-  git clone https://github.com/VundleVim/Vundle.vim $HOME/.vim/bundle/Vundle.vim
-fi
-
 cd `dirname $0`
 pwd=`pwd`
+
+# Install Vundle.vim
+if [ ! -e "dot.vim/bundle/Vundle.vim" ]; then
+  git clone https://github.com/VundleVim/Vundle.vim dot.vim/bundle/Vundle.vim
+fi
+
 for i in `ls -1d $pwd/dot.*`; do
   dotfile=`basename $i | sed -e 's/dot//'`
   echo "ln -sf $i $HOME/$dotfile"
-  if [ -d $i ]; then
+  if [ -d $i -a -e $HOME/$dotfile ]; then
     rm $HOME/$dotfile
   fi
   ln -sf $i $HOME/$dotfile
 done
+
+cd - > /dev/null 2>&1

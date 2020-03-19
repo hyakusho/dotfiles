@@ -1,2 +1,4 @@
 .*swp
-dot.vim/bundle
+.netrwhist
+dot.vim/bundle/*
+!dot.vim/bundle/.keep
