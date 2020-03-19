@@ -1,0 +1,21 @@
+" vim: set ft=vim:
+
+set visualbell
+highlight Bell display:none
+map <C-r> :source<Space>~/.vimperatorrc<Return>
+style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+highlight Hint<<EOM
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  background-color: red;
+  border-color: ButtonShadow;
+  border-width: 0px;
+  border-style: solid;
+  padding: 0px 1px 0px 1px;
+  z-index: 2147483647;
+EOM
+
+echo "Loaded .vimperatorrc!"
